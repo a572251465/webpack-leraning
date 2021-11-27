@@ -22,15 +22,20 @@ function compose(resolveLoaders) {
  * @param compiler 编译实例
  */
 function resolveLoader(chunks, compiler) {
+  // 入口文件 以及loader的module
   const {entry, module = {}} = compiler.options
+  // 解析规则
   const {rules} = module
   // 是否配置loader
   if (rules && Array.isArray(rules)) {
     Object.keys(entry).forEach(keyName => {
       const modules = []
+      // 文件路径
       const filePath = entry[keyName]
+      // 读取文件内容
       const fileContent = fs.readFileSync(filePath, 'utf-8')
       rules.forEach(rule => {
+        // 如果满足loader.test 匹配规则，调用对应的loader来解析
         if (rule.test.test(filePath)) {
           const methods = rule.use.map(methodPath => require(methodPath))
           modules.push(compose(methods)(fileContent))
