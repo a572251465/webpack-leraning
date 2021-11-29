@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{2:function(o,n){o.exports=function(){console.log("我是son223344422")}}}]);

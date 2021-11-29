@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "hash": "webpack --config ./build/webpack.hash.js",
+    "contenthash": "webpack --config ./build/webpack.contenthash.js",
+    "chunkhash": "webpack --config ./build/webpack.chunkhash.js"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "4.46",
+    "webpack-cli": "4"
+  }
+}
